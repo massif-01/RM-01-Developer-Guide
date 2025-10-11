@@ -55,3 +55,4 @@ RM-01 is a powerful, integrated device featuring an **Inference Module**, an **A
 For detailed guides, please select your preferred language from the list above.
 
 YOLO Achievement Test
+YOLO Achievement Test 2
