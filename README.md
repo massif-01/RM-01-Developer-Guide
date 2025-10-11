@@ -46,7 +46,6 @@ RM-01 是一款集成了 **推理模组**、**应用模组** 和 **管理模组*
 
 ---
 
-## About This Project
 
 Welcome to the RM-01 Developer Guide! This repository contains detailed developer documentation for the RM-01 high-performance portable AI device.
 
