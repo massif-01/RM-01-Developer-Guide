@@ -53,3 +53,5 @@ Welcome to the RM-01 Developer Guide! This repository contains detailed develope
 RM-01 is a powerful, integrated device featuring an **Inference Module**, an **Application Module**, and a **Management Module**. It creates a local network subnet via an onboard Ethernet switch, allowing your host machine to seamlessly connect for development and interaction when plugged in via USB Type-C.
 
 For detailed guides, please select your preferred language from the list above.
+
+YOLO Achievement Test
