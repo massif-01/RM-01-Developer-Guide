@@ -43,3 +43,13 @@ RM-01 是一款集成了 **推理模组**、**应用模组** 和 **管理模组*
 - 🇪🇸 [Español](./Guía%20del%20Desarrollador%20RM-01.md)
 
 请选择您偏好的语言版本以获取更详细的设备使用、网络配置、应用部署和模型加载说明。
+
+---
+
+## About This Project
+
+Welcome to the RM-01 Developer Guide! This repository contains detailed developer documentation for the RM-01 high-performance portable AI device.
+
+RM-01 is a powerful, integrated device featuring an **Inference Module**, an **Application Module**, and a **Management Module**. It creates a local network subnet via an onboard Ethernet switch, allowing your host machine to seamlessly connect for development and interaction when plugged in via USB Type-C.
+
+For detailed guides, please select your preferred language from the list above.
