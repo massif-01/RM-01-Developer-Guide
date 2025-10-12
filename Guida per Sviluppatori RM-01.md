@@ -4,7 +4,13 @@
 
 L'RM-01 è composto da un **Modulo di Inferenza**, un **Modulo di Applicazione** e un **Chip di Crittografia e Gestione** (di seguito denominato Modulo di Gestione), interconnessi tramite un **chip di switch Ethernet integrato**, che forma una sottorete LAN interna. Quando un utente collega un host (ad esempio, PC, smartphone, iPad) tramite l'interfaccia **USB Type-C**, l'RM-01 virtualizza un'interfaccia Ethernet per l'host tramite la funzionalità USB Ethernet. L'host ottiene quindi un indirizzo IP e si unisce automaticamente alla sottorete per lo scambio di dati.
 
-Dopo l'accensione del dispositivo e la connessione all'host tramite l'interfaccia **USB Type-C**, il sistema configurerà automaticamente la sottorete di rete locale. All'**host dell'utente** verrà assegnato un indirizzo IP statico `10.10.99.100`. Il **Modulo di Inferenza** (IP: `10.10.99.98`) e il **Modulo di Applicazione** (IP: `10.10.99.99`)—entrambi implementano servizi SSH indipendenti, consentendo agli utenti di accedervi direttamente tramite client SSH standard (ad esempio, OpenSSH, PuTTY). Il Modulo di Gestione, invece, richiede l'accesso tramite uno strumento per porta seriale.
+Dopo l'accensione del dispositivo e la connessione all'host tramite l'interfaccia **USB Type-C**, il sistema configurerà automaticamente la sottorete di rete locale. All'**host dell'utente** verrà assegnato un indirizzo IP statico `10.10.99.100`, e il **Chip di Gestione Fuori Banda** avrà un indirizzo IP statico `10.10.99.97`. Il **Modulo di Inferenza** (IP: `10.10.99.98`) e il **Modulo di Applicazione** (IP: `10.10.99.99`)—entrambi implementano servizi SSH indipendenti, consentendo agli utenti di accedervi direttamente tramite client SSH standard (ad esempio, OpenSSH, PuTTY). Il Modulo di Gestione, invece, richiede l'accesso tramite uno strumento per porta seriale.
+
+---
+
+## Informazioni sul Chip di **Gestione Fuori Banda**
+
+Oltre a gestire alcune attività di crittografia, il Chip di Gestione Fuori Banda ospita anche il **dashboard di monitoraggio delle prestazioni del sistema in tempo reale dell'RM-01** — **RobOS**. Gli utenti possono accedere a `10.10.99.97` tramite un browser web per monitorare lo **stato di connessione** e lo **stato operativo** di ciascun modulo in tempo reale.
 
 ---
 
@@ -40,9 +46,9 @@ La scheda di memoria **CFexpress Type-B** è uno dei componenti principali del d
 
 La scheda di memoria è divisa in tre partizioni indipendenti, ovvero:
 
-`rm01sys` `rm01app` `rm01models`
+`rm01rootfs` `rm01app` `rm01models`
 
-`rm01sys` — Partizione di Sistema  
+`rm01rootfs` — Partizione di Sistema  
 Il sistema operativo e l'ambiente di esecuzione principale del **Modulo di Inferenza** sono installati in questa partizione. È severamente vietato agli utenti o agli sviluppatori accedere, modificare o eliminare il contenuto di questa partizione. Qualsiasi modifica non autorizzata può causare il mancato avvio del Modulo di Inferenza o il malfunzionamento delle funzioni di inferenza, e qualsiasi danno hardware o software risultante non è coperto dai servizi di garanzia.
 
 `rm01app` — Partizione di Applicazione  
@@ -72,6 +78,10 @@ Credenziali di Accesso SSH del Modulo di Applicazione:
 Nome utente predefinito: rm01  
 Password predefinita: rm01 (preimpostata in fabbrica, solo per il primo accesso)  
 ```
+
+**Preinstallato:**
+
+Il Modulo di Applicazione ha **Open WebUI** preinstallato sulla porta `80` per facilitare il debugging semplice dei modelli e il lavoro conversazionale. Gli utenti possono accedervi navigando su `10.10.99.99` nel loro browser web.
 
 **Avviso di Sicurezza:**  
 Per garantire la sicurezza del sistema, utilizza immediatamente il comando `passwd` per modificare la password predefinita dopo il primo accesso SSH. La password predefinita è solo per la configurazione iniziale e non deve essere utilizzata in ambienti di produzione o distribuzione.

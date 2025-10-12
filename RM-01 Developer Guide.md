@@ -4,7 +4,13 @@
 
 RM-01 consists of an **Inference Module**, an **Application Module**, and an **Encryption and Management Chip** (hereinafter referred to as the Management Module), interconnected via an **onboard Ethernet switch chip**, forming an internal LAN subnet. When a user connects to a host (e.g., PC, smartphone, iPad) via the **USB Type-C** interface, RM-01 will virtualize an Ethernet interface for the host through USB Ethernet functionality. The host will then obtain an IP address and automatically join the subnet for data interaction.
 
-After the device is powered on and connected to the host via the **USB Type-C** interface, the system will automatically configure the local network subnet. The **user host** will be assigned a static IP address `10.10.99.100`. The **Inference Module** (IP: `10.10.99.98`) and the **Application Module** (IP: `10.10.99.99`)—both deploy independent SSH services, allowing users to access them directly via standard SSH clients (e.g., OpenSSH, PuTTY). The Management Module, however, requires access via a serial port tool.
+After the device is powered on and connected to the host via the **USB Type-C** interface, the system will automatically configure the local network subnet. The **user host** will be assigned a static IP address `10.10.99.100`, and the **Out-of-Band Management Chip** will have a static IP address of `10.10.99.97`. The **Inference Module** (IP: `10.10.99.98`) and the **Application Module** (IP: `10.10.99.99`)—both deploy independent SSH services, allowing users to access them directly via standard SSH clients (e.g., OpenSSH, PuTTY). The Management Module, however, requires access via a serial port tool.
+
+---
+
+## About the **Out-of-Band Management** Chip
+
+In addition to handling certain encryption tasks, the Out-of-Band Management Chip also hosts the **RM-01's real-time system performance monitoring dashboard** — **RobOS**. Users can access `10.10.99.97` through a web browser to monitor the **connection status** and **operational status** of each module in real-time.
 
 ---
 
@@ -40,9 +46,9 @@ The **CFexpress Type-B** storage card is one of the core components of the RM-01
 
 The storage card is divided into three independent partitions, namely:
 
-`rm01sys` `rm01app` `rm01models`
+`rm01rootfs` `rm01app` `rm01models`
 
-`rm01sys` — System Partition  
+`rm01rootfs` — System Partition  
 The operating system and core runtime environment of the **Inference Module** are installed in this partition. Users or developers are strictly prohibited from accessing, modifying, or deleting the contents of this partition. Any unauthorized changes may cause the Inference Module to fail to boot or render inference functions inoperable, and any resulting hardware or software damage is not covered by any warranty services.
 
 `rm01app` — Application Partition  
@@ -72,6 +78,10 @@ Application Module SSH Access Credentials:
 Default Username: rm01  
 Default Password: rm01 (factory preset, for initial login only)  
 ```
+
+**Pre-installed:**
+
+The Application Module has **Open WebUI** pre-installed on port `80` to facilitate simple model debugging and conversational work. Users can access it by navigating to `10.10.99.99` in their web browser.
 
 **Security Notice:**  
 To ensure system security, immediately use the `passwd` command to change the default password after the first SSH login. The default password is only for initial configuration and must not be used in production or deployment environments.
