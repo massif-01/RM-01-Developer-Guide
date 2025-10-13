@@ -135,8 +135,8 @@ This project is licensed under the MIT License - see the [LICENSE](LICENSE) file
 ### 📞 Support
 
 - 📚 **Documentation**: [Developer Guide](./RM-01%20Developer%20Guide.md)
-- 🌐 **Website**: [massif.ai](https://massif.ai)
-- 📧 **Email**: support@massif.ai
+- 🌐 **Website**: www.rminte.com
+- 📧 **Email**: support@rminte.com
 
 ---
 
@@ -267,8 +267,8 @@ passwd
 ### 📞 支持
 
 - 📚 **文档**: [开发者指南](./RM-01%20开发者使用指南.md)
-- 🌐 **官网**: [massif.ai](https://massif.ai)
-- 📧 **邮箱**: support@massif.ai
+- 🌐 **官网**: www.rminte.com
+- 📧 **邮箱**: support@rminte.com
 
 ---
 
